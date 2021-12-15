@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  pub:
+    build:
+      context: .
+      dockerfile: pub.Dockerfile
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 64M
+    networks:
+      - net
+    ports:
+      - 5556:5556/tcp
+  sub:
+    build:
+      context: .
+      dockerfile: sub.Dockerfile
+    depends_on:
+      - pub
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+      - MICROLIGHT_SERVER=pub
+      - MICROLIGHT_PORT=5556
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 64M
+    networks:
+      - net
+    restart: always
+
+networks:
+  net:
+    driver: bridge

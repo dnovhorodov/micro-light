@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch MicroLight Publisher",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/pub/bin/Debug/net6.0/pub",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/pub",
+            "stopAtEntry": false,            
+            "console": "integratedTerminal",
+            "logging": {
+                "moduleLoad": false,
+                "trace": true
+            },
+            "env": {
+                "DOTNET_ENVIRONMENT": "Development",
+                "MICROLIGHT_SERVER": "127.0.0.1",
+                "MICROLIGHT_PORT": "5556"
+            }
+        },
+        {
+            "name": "Launch MicroLight Subscriber",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/sub/bin/Debug/net6.0/sub",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/sub",
+            "stopAtEntry": false,
+            "console": "integratedTerminal",
+            "logging": {
+                "moduleLoad": false,
+                "trace": true
+            },
+            "env": {
+                "DOTNET_ENVIRONMENT": "Development",
+                "MICROLIGHT_SERVER": "127.0.0.1",
+                "MICROLIGHT_PORT": "5556"
+            }
+        }
+
+    ]
+}

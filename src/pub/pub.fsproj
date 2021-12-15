@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <RuntimeIdentifiers>linux-musl-x64;win-x64</RuntimeIdentifiers>
+    <RootNamespace>MicroLight.Pub</RootNamespace>
+    <WarnOn>3390;$(WarnOn)</WarnOn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../shared/Constants.fs" />
+    <Compile Include="../shared/MicroLightConfig.fs" />
+    <Compile Include="../utils/Helpers.fs" />
+    <Compile Include="../shared/Domain.fs" />
+    <Compile Include="../shared/Dtos.fs" />
+    <Compile Include="./Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FsConfig" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NetMQ" Version="4.0.1.6" />
+  </ItemGroup>
+
+</Project>
