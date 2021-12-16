@@ -1,6 +1,6 @@
 ## Lightweight Microservices with F# and ZeroMQ
 
-This is a sample solution for [F# Advent article](). Solution consists of two projects: pub and sub which represents publisher and subscriber accordingly. Publisher randomly sends domain events: correct and incorrect, subscriber listens to it and validates.
+This is a sample solution for [F# Advent 2021](). Solution consists of two projects: pub and sub which represents publisher and subscriber accordingly. Publisher randomly sends domain events: correct and incorrect, subscriber listens to it and validates.
 
 ------
 

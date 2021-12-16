@@ -14,7 +14,7 @@ let main argv =
 
     let runContinuously sub = async {
         let rec fetch () = async {
-
+            (* Define worflows here based on event type *)
             match NetMQMessage.TryGetDomainEvent(sub) with
             | Some event -> printfn $"%A{event}"
             | None -> ()

@@ -15,6 +15,8 @@
     <Compile Include="../utils/Helpers.fs" />
     <Compile Include="../shared/Domain.fs" />
     <Compile Include="../shared/Dtos.fs" />
+    <Compile Include="../shared/Events.fs" />
+    <Compile Include="../shared/DomainHelpers.fs" />
     <Compile Include="./Program.fs" />
   </ItemGroup>
 

@@ -7,10 +7,5 @@ type Contact =
         FirstName: string
         MiddleName: string option
         LastName: string
-    }
-
-type SendEmailDomainEvent = 
-    {
-        Contact: Contact
-        SendToAddress: EmailAddress
+        EmailAddress: EmailAddress
     }

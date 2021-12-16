@@ -2,9 +2,10 @@ open System
 open NetMQ
 open NetMQ.Sockets
 open MicroLight
-open MicroLight.Domain
-open MicroLight.Dto
 open MicroLight.Helpers.Extensions
+open MicroLight.Events
+open MicroLight.Domain
+open MicroLight.DomainHelpers
 
 [<EntryPoint>]
 let main argv =
@@ -30,18 +31,18 @@ let main argv =
             let randomizedTopic = rand.NextDouble();
             
             if randomizedTopic > 0.5 then
-                let event : SendEmailDomainEvent = {
+                let event : ContactCreatedDomainEvent = {
                     Contact = {
                         FirstName = "John"
                         MiddleName = None
                         LastName = "Dou"
+                        EmailAddress = EmailAddress "johndou@gmail.com"
                     }
-                    SendToAddress = EmailAddress "johndou@gmail.com"
                 } 
                 printfn $"Sending event : {event}"
 
-                let json = event |> SendEmailDto.jsonFromDomain
-                let eventType = Infrastructure |> toString
+                let json = event |> ContactCreated.jsonFromDomain
+                let eventType = Business |> toString
                 
                 config.Topics |> List.iter (
                     fun topic -> publisher.SendMoreFrame(topic).SendMoreFrame(eventType).SendFrame(json))
@@ -49,7 +50,7 @@ let main argv =
                 let json = """{ "NonExisting":"Message" }"""
                 printfn $"Sending some non-defined event..."
                 config.Topics |> List.iter (
-                    fun topic -> publisher.SendMoreFrame(topic).SendMoreFrame(Infrastructure |> toString).SendFrame(json))
+                    fun topic -> publisher.SendMoreFrame(topic).SendMoreFrame(Business |> toString).SendFrame(json))
             
             Threading.Thread.Sleep(1000);
     finally

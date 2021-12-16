@@ -3,9 +3,14 @@ namespace MicroLight.Events
 open MicroLight.Domain
 open MicroLight.Dto
 
-(* 
-    Define domain events here
-*)
+type DomainEventType =
+    | Business
+    | Infrastructure
 
+type ContactCreatedDomainEvent = 
+    {
+        Contact: Contact
+        //SendToAddress: EmailAddress
+    }
 type DomainEvent = 
-    | SendEmailEvent of Result<SendEmailDomainEvent, DtoError>
+    | ContactCreated of Result<ContactCreatedDomainEvent, DtoError>
