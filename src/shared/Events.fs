@@ -10,7 +10,6 @@ type DomainEventType =
 type ContactCreatedDomainEvent = 
     {
         Contact: Contact
-        //SendToAddress: EmailAddress
     }
 type DomainEvent = 
     | ContactCreated of Result<ContactCreatedDomainEvent, DtoError>
