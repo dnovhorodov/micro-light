@@ -1,6 +1,6 @@
 ## Lightweight Microservices with F# and ZeroMQ
 
-This is a sample solution for an [article](https://danylomeister.blog/2021/12/15/lightweight-microservices-with-fsharp-and-zeromq) from [F# Advent 2021](https://sergeytihon.com/2021/10/18/f-advent-calendar-2021/). Solution consists of two projects: pub and sub which represents publisher and subscriber accordingly. Publisher randomly sends domain events: correct and incorrect, subscriber listens to it and validates.
+This is a sample solution for an [article](https://danylomeister.blog/2021/12/23/lightweight-microservices-with-fsharp-and-zeromq/) from [F# Advent 2021](https://sergeytihon.com/2021/10/18/f-advent-calendar-2021/). Solution consists of two projects: pub and sub which represents publisher and subscriber accordingly. Publisher randomly sends domain events: correct and incorrect, subscriber listens to it and validates.
 
 ------
 
